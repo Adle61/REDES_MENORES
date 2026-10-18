@@ -1,0 +1,196 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Configuración de una Red Pequeña - Introducción a la Informática</title>
+    
+    <link rel="stylesheet" href="css/styles.css">
+    
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+</head>
+<body>
+
+    
+    <header class="navbar">
+        <div class="nav-brand">
+            <h2>Ing. de Sistemas <span>[Redes]</span></h2>
+        </div>
+        
+        <button class="hamburger" id="hamburger-btn" aria-label="Abrir menú">
+            <i class="fas fa-bars"></i>
+        </button>
+        
+        <nav class="nav-menu" id="nav-menu">
+            <ul>
+                <li><a href="#tema1">1. Redes de Cómputo</a></li>
+                <li><a href="#tema2">2. IPv4</a></li>
+                <li><a href="#tema3">3. Clases de Red</a></li>
+                <li><a href="#tema4">4. Direccionamiento IP</a></li>
+                <li><a href="#tema5" class="active">5. Red Pequeña (Actual)</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    
+    <section class="hero" id="tema5">
+        <div class="hero-content">
+            <h1>Configuración de una Red Pequeña</h1>
+            <p>De la conexión física a la identidad lógica: componentes y parámetros clave.</p>
+            <a href="#hardware" class="btn-primary"> Iniciar Recorrido Interactivo</a>
+        </div>
+    </section>
+
+    
+    <main class="container">
+
+        
+        <section id="hardware" class="section">
+            <h2>1. Hardware de Red Esencial</h2>
+            <p class="section-desc">Pasa el cursor o haz clic sobre los componentes físicos para conocer su función:</p>
+            
+            <div class="grid-cards">
+                <div class="card">
+                    <div class="card-inner">
+                        <div class="card-front">
+                            <i class="fas fa-network-wired"></i>
+                            <h3>Tarjeta de Red (NIC)</h3>
+                        </div>
+                        <div class="card-back">
+                            <p>Permite al dispositivo conectarse físicamente mediante cable Ethernet o de forma inalámbrica vía Wi-Fi.</p>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="card">
+                    <div class="card-inner">
+                        <div class="card-front">
+                            <i class="fas fa-ethernet"></i>
+                            <h3>Cable UTP / Medio</h3>
+                        </div>
+                        <div class="card-back">
+                            <p>Medio físico de transmisión de datos compuesto por hilos de cobre trenzados con conectores RJ-45.</p>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="card">
+                    <div class="card-inner">
+                        <div class="card-front">
+                            <i class="fas fa-server"></i>
+                            <h3>Switch (Conmutador)</h3>
+                        </div>
+                        <div class="card-back">
+                            <p>Conecta múltiples equipos formando una red local (LAN), permitiendo la comunicación interna entre ellos.</p>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="card">
+                    <div class="card-inner">
+                        <div class="card-front">
+                            <i class="fas fa-router"></i>
+                            <h3>Router (Enrutador)</h3>
+                        </div>
+                        <div class="card-back">
+                            <p>Dispositivo inteligente que conecta diferentes redes entre sí, permitiendo el tráfico hacia Internet (WAN).</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        
+        <section class="section">
+            <h2>2. Arquitectura de la Red Local</h2>
+            <div class="network-diagram">
+                <div class="node pc">PC 1</div>
+                <div class="line"></div>
+                <div class="node pc">PC 2</div>
+                <div class="line"></div>
+                <div class="node switch">Switch</div>
+                <div class="line"></div>
+                <div class="node router">Router</div>
+                <div class="line"></div>
+                <div class="node internet"><i class="fas fa-globe"></i> Internet</div>
+            </div>
+        </section>
+
+        
+        <section class="section">
+            <h2>3. Parámetros Lógicos de Configuración</h2>
+            <div class="params-grid">
+                <div class="param-card ip">
+                    <i class="fas fa-laptop-code"></i>
+                    <h3>Dirección IP</h3>
+                    <code>192.168.1.10</code>
+                    <p>Identificador único del host dentro de la red.</p>
+                </div>
+                <div class="param-card mask">
+                    <i class="fas fa-filter"></i>
+                    <h3>Máscara de Subred</h3>
+                    <code>255.255.255.0</code>
+                    <p>Delimita qué parte de la IP pertenece a la red y cuál al host.</p>
+                </div>
+                <div class="param-card gw">
+                    <i class="fas fa-door-open"></i>
+                    <h3>Default Gateway</h3>
+                    <code>192.168.1.1</code>
+                    <p>IP del Router que permite salir a redes externas.</p>
+                </div>
+                <div class="param-card dns">
+                    <i class="fas fa-globe-americas"></i>
+                    <h3>Servidor DNS</h3>
+                    <code>8.8.8.8</code>
+                    <p>Traduce nombres web legibles a direcciones IP numéricas.</p>
+                </div>
+            </div>
+        </section>
+
+        
+        <section class="section">
+            <h2>4. Asignación de Direcciones IP</h2>
+            <div class="comparison-container">
+                <div class="comp-box">
+                    <h3><i class="fas fa-bolt"></i> Dinámica (DHCP)</h3>
+                    <p>El router asigna una IP automáticamente al conectar el dispositivo. Ideal para laptops y smartphones.</p>
+                </div>
+                <div class="comp-box">
+                    <h3><i class="fas fa-lock"></i> Estática (Manual)</h3>
+                    <p>Configurada de forma fija por el administrador. Esencial para servidores e impresoras de red.</p>
+                </div>
+            </div>
+        </section>
+
+        
+        <section class="section">
+            <h2>5. Demostración Práctica: Comando `ipconfig`</h2>
+            <p class="section-desc">Haz clic en el botón para ejecutar el comando en tiempo real:</p>
+            
+            <div class="terminal-window">
+                <div class="terminal-header">
+                    <span class="dot red"></span>
+                    <span class="dot yellow"></span>
+                    <span class="dot green"></span>
+                    <span class="terminal-title">Símbolo del sistema (CMD)</span>
+                </div>
+                <div class="terminal-body" id="terminal-screen">
+                    <p class="command-prompt">C:\Users\IngSistemas> _</p>
+                </div>
+                <button class="btn-terminal" id="run-cmd-btn"><i class="fas fa-play"></i> Ejecutar comando ipconfig</button>
+            </div>
+        </section>
+
+    </main>
+
+    
+    <footer class="page-footer">
+        <a href="#" class="btn-nav"><i class="fas fa-arrow-left"></i> Página 4</a>
+        <p>Proyecto Integrador - Introducción a la Informática</p>
+        <a href="#" class="btn-nav">Fin <i class="fas fa-check"></i></a>
+    </footer>
+
+    
+    <script src="js/main.js"></script>
+</body>
+</html>
